@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For babe Jo.</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #faf5ef;
+  --paper: #fffaf7;
+  --pink: #e5cbd4;
+  --rose: #b995a5;
+  --purple: #d6ccdc;
+  --dark: #66515d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'Noto Serif SC', serif;
+  overflow-x: hidden;
+}
+
+/* 页面背景 */
+.background {
+  min-height: 100vh;
+  padding: 20px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at 10% 15%, #ead9e1 0%, transparent 30%),
+    radial-gradient(circle at 90% 85%, #ded5e6 0%, transparent 30%),
+    #faf5ef;
+}
+
+.book {
+  width: 100%;
+  max-width: 680px;
+  min-height: 90vh;
+  background: var(--paper);
+  border: 1px solid #eadde0;
+  box-shadow: 0 15px 55px #8f71801c;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 翻页 */
+.page {
+  display: none;
+  min-height: 90vh;
+  padding: 40px 25px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn .65s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 字体 */
+.script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.english {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* 第一页 */
+.cover {
+  width: min(100%, 460px);
+  aspect-ratio: 1 / 1.05;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.heart {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 8px 12px #b995a533);
+}
+
+.heart path {
+  fill: #fffdfb;
+  stroke: #e5d8df;
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+
+.heart-inner {
+  fill: none !important;
+  stroke: #d5bdc9 !important;
+  stroke-width: 2 !important;
+  stroke-dasharray: 2 5;
+}
+
+
+.lace-decoration::before {
+  position: absolute;
+  top: 8%;
+  left: 0;
+  width: 100%;
+  color: #c8a6b7;
+  letter-spacing: 8px;
+  font-size: 11px;
+}
+
+.cover-title {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(65px, 13vw, 100px);
+  line-height: 1.05;
+  color: #9c7a8d;
+  text-shadow: 1px 2px #fff;
+}
+
+.love {
+  font: italic 19px 'Cormorant Garamond', serif;
+  color: #aa8a9b;
+  letter-spacing: 3px;
+  margin-top: 5px;
+}
+
+/* 按钮 */
+button {
+  cursor: pointer;
+  border: 1px solid #d9c3ce;
+  background: #fffaf8;
+  color: #876b7c;
+  border-radius: 30px;
+  padding: 11px 28px;
+  font: italic 19px 'Cormorant Garamond', serif;
+  transition: .25s;
+}
+
+button:hover {
+  background: #f0e3e9;
+  transform: translateY(-2px);
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* 第二页 */
+.question {
+  font: italic clamp(43px, 9vw, 62px) 'Cormorant Garamond', serif;
+  color: #98788a;
+  margin-bottom: 40px;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.choice {
+  min-width: 120px;
+  font-size: 21px;
+}
+
+/* 第三页 */
+.lace-band {
+  width: 100%;
+  height: 34px;
+  border-top: 1px solid #d9bfcb;
+  border-bottom: 1px solid #d9bfcb;
+  margin: 15px 0 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lace-band::after {
+  content: "🤍  ·  ◦  ·  🤍  ·  ◦  ·  🤍  ·  ◦  ·  🤍";
+  color: #c29eae;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+.ribbon {
+  font: 40px 'Great Vibes', cursive;
+  color: #b58fa1;
+  margin-bottom: 8px;
+}
+
+.invite {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+  font-size: clamp(25px, 6vw, 34px);
+  letter-spacing: 3px;
+  color: #806878;
+  margin-bottom: 8px;
+}
+
+.tap {
+  font: italic 16px 'Cormorant Garamond', serif;
+  letter-spacing: 3px;
+  color: #b398a6;
+  margin-bottom: 18px;
+}
+
+.tap-area {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.tap-area span {
+  font: 36px 'Great Vibes', cursive;
+  color: #a58394;
+}
+
+.tap-area img {
+  width: min(90%, 300px);
+  max-height: 200px;
+  object-fit: cover;
+  border: 7px solid white;
+  box-shadow: 0 7px 20px #8f71802b;
+  transform: rotate(-2deg);
+}
+
+/* 第三页底部照片 */
+.photo-frame {
+  width: min(90%, 390px);
+  background: white;
+  padding: 10px 10px 25px;
+  margin: 20px auto;
+  box-shadow: 0 8px 25px #967b8925;
+  transform: rotate(1deg);
+}
+
+.photo-frame img {
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: 310px;
+  object-fit: cover;
+}
+
+/* 第四页 */
+.final-page {
+  background:
+    radial-gradient(circle at 15% 20%, #f0dfe5 0%, transparent 35%),
+    radial-gradient(circle at 90% 80%, #e9e0eb 0%, transparent 35%),
+    #fffaf6;
+  position: relative;
+}
+
+.final-page::before,
+.final-page::after {
+  content: "⋆. ᐝⰔⱄ    ♡    Ⱄⱄ⋆. ᐝ    ♡  ⋆. ᐝⰔⱄ";
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: #e2cbd5;
+  letter-spacing: 8px;
+  font-size: 19px;
+}
+
+.final-page::before {
+  top: 14%;
+}
+
+.final-page::after {
+  bottom: 14%;
+}
+
+.final-line {
+  width: 85%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #c7aab7,
+    transparent
+  );
+  margin: 28px auto;
+}
+
+.quote {
+  font: clamp(29px, 7vw, 42px)/1.45 'Cormorant Garamond', serif;
+  color: #5d4b55;
+  text-align: center;
+  max-width: 480px;
+}
+
+.chinese {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 2.2;
+  letter-spacing: 2px;
+  color: #917984;
+  margin-top: 18px;
+}
+
+/* 手机适配 */
+@media(max-width:480px) {
+  .book,
+  .page {
+    min-height: calc(100svh - 40px);
+  }
+
+  .page {
+    padding: 30px 20px;
+  }
+
+  .cover-title {
+    font-size: 68px;
+  }
+
+  .photo-frame {
+    width: 95%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+<div class="book">
+
+<!-- 第一页：封面 -->
+<section class="page active" id="p1">
+
+  <div class="cover">
+
+    <svg class="heart" viewBox="0 0 500 500">
+      <path d="
+        M250 440
+        C205 397 55 286 55 165
+        C55 76 164 38 250 130
+        C336 38 445 76 445 165
+        C445 286 295 397 250 440Z
+      "/>
+
+      <path class="heart-inner" d="
+        M250 420
+        C205 380 75 276 75 165
+        C75 95 161 59 250 151
+        C339 59 425 95 425 165
+        C425 276 295 380 250 420Z
+      "/>
+    </svg>
+
+    <div class="lace-decoration"></div>
+
+    <div class="cover-title script">
+      For babe Jo.
+    </div>
+
+  </div>
+
+  <div class="love">Love Y.</div>
+
+  <div class="nav">
+    <button onclick="go(2)">Open →</button>
+  </div>
+
+</section>
+
+
+<!-- 第二页：互动问题 -->
+<section class="page" id="p2">
+
+  <h2 class="question">a tiring day?</h2>
+
+  <div class="choices">
+    <button class="choice" onclick="go(3)">yes</button>
+    <button class="choice" onclick="go(3)">not sure</button>
+  </div>
+
+  <div class="nav">
+    <button onclick="go(1)">←</button>
+  </div>
+
+</section>
+
+
+<!-- 第三页：拥抱互动 -->
+<section class="page" id="p3">
+
+  <div class="lace-band"></div>
+
+  <div class="ribbon">˙Ი𐑼⋆</div>
+
+  <h2 class="invite">要来我怀里吗</h2>
+
+  <div class="tap">tap again</div>
+
+  <!-- 点击顺序：初始文字 → 照片 → 英文 -->
+  <div
+    class="tap-area"
+    id="tapArea"
+    onclick="cycleMessage()"
+    role="button"
+    tabindex="0"
+  >
+    <span></span>
+  </div>
+
+  <div class="lace-band"></div>
+
+  <div class="nav">
+    <button onclick="go(2)">←</button>
+    <button onclick="go(4)">→</button>
+  </div>
+
+</section>
+
+
+<!-- 第四页：最后的话 -->
+<section class="page final-page" id="p4">
+
+  <div class="final-line"></div>
+
+  <div class="quote">
+    Let this be my last word,<br>
+    that I trust in thy love.
+  </div>
+
+  <div class="chinese">
+    我相信你的爱<br>
+    让这句话做我的最后的话=⦁ - ⦁=
+  </div>
+
+  <div class="final-line"></div>
+
+  <div class="nav">
+    <button onclick="go(3)">←</button>
+  </div>
+
+</section>
+
+</div>
+</div>
+
+
+<script>
+
+// 页面翻页
+let currentPage = 1;
+
+function go(pageNumber) {
+
+  document
+    .getElementById('p' + currentPage)
+    .classList.remove('active');
+
+  currentPage = pageNumber;
+
+  document
+    .getElementById('p' + currentPage)
+    .classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+
+// 第三页点击互动
+let messageStep = 0;
+
+function cycleMessage() {
+
+  const area = document.getElementById('tapArea');
+
+  messageStep++;
+
+  if (messageStep === 1) {
+
+    // 第一次点击：出现照片
+    area.innerHTML =
+      '<img src="photo.jpg" alt="我们的照片">';
+
+  } else if (messageStep === 2) {
+
+    // 第二次点击：出现指定英文
+    area.innerHTML =
+      '<span>lean Into each other more,plz.</span>';
+
+  } else {
+
+    // 再次点击：回到初始状态
+    messageStep = 0;
+
+    area.innerHTML = '<span></span>';
+
+  }
+
+}
+
+
+// 支持手机键盘及回车操作
+document
+  .getElementById('tapArea')
+  .addEventListener('keydown', function(event) {
+
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      cycleMessage();
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
